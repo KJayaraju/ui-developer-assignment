@@ -142,3 +142,121 @@
   text-decoration: none;   
   color: white;            
 }
+/* ================= RESPONSIVE ================= */
+
+/* ---------- Large Screens (Default ≥1400px) ---------- */
+/* No change needed – your current CSS is perfect */
+
+
+/* ---------- iPad Pro & Tablets (≤1024px) ---------- */
+@media (max-width: 1024px) {
+
+  /* HEADER */
+  .header-left {
+    width: 20%;
+  }
+
+  .header-right {
+    width: 30%;
+  }
+
+  .step {
+    min-width: 70px;
+    font-size: 11px;
+  }
+
+  .line {
+    width: 25px;
+  }
+
+  /* SIDEBAR */
+  .sidebar {
+    width: 180px;
+  }
+
+  /* CONTENT */
+  .page-container {
+    padding: 12px;
+  }
+}
+
+
+/* ---------- Mobile (iPhone 12 Pro ≤390px) ---------- */
+@media (max-width: 390px) {
+
+  /* HEADER */
+  .app-header {
+    height: auto;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 10px;
+    gap: 8px;
+  }
+
+  .header-left,
+  .header-center,
+  .header-right {
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .header-center {
+    order: 3;
+    justify-content: center;
+  }
+
+  .header-right {
+    order: 2;
+  }
+
+  .user-info {
+    font-size: 11px;
+  }
+
+  /* STEPPER */
+  .stepper {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .step {
+    min-width: 60px;
+    font-size: 10px;
+  }
+
+  .line {
+    display: none; /* Hide connectors on mobile */
+  }
+
+  /* BODY */
+  .app-body {
+    flex-direction: column;
+    height: auto;
+  }
+
+  /* SIDEBAR → TOP MENU */
+  .sidebar {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    padding: 5px 0;
+  }
+
+  .menu-section {
+    width: 100%;
+  }
+
+  .menu-title {
+    display: none;
+  }
+
+  .menu-item {
+    padding: 8px 12px;
+    font-size: 13px;
+  }
+
+  /* CONTENT */
+  .page-container {
+    padding: 10px;
+  }
+}
