@@ -1,0 +1,165 @@
+<!-- ===================== -->
+<!-- TEMPLATES LIST TABLE -->
+<!-- ===================== -->
+
+<div class="templates-header">
+  <h3>Templates</h3>
+
+  <button mat-raised-button color="primary" routerLink="/create-template">
+    + Create Template
+  </button>
+</div>
+
+<table class="templates-table" *ngIf="templates.length">
+  <tr>
+    <th>Name</th>
+    <th>Region</th>
+    <th>Modules</th>
+    <th>Action</th>
+  </tr>
+
+  <tr *ngFor="let t of templates; let i = index">
+    <td>{{ t.name }}</td>
+    <td>{{ t.region }}</td>
+    <td>{{ t.modules.join(', ') }}</td>
+    <td>
+      <button mat-stroked-button color="primary"
+              (click)="selectTemplate(t, i)">
+        View
+      </button>
+
+      <button mat-stroked-button color="primary"
+              [routerLink]="['/edit-template', i]">
+        Edit
+      </button>
+
+      <button mat-stroked-button color="warn"
+              (click)="deleteTemplate(i)">
+        Delete
+      </button>
+    </td>
+  </tr>
+</table>
+
+<p *ngIf="!templates.length">No templates created yet.</p>
+
+<hr />
+
+<!-- ===================== -->
+<!-- TEMPLATE DETAILS VIEW -->
+<!-- ===================== -->
+
+<div class="template-page" *ngIf="selectedTemplate">
+
+  <!-- Breadcrumb -->
+  <div class="breadcrumb">
+    USA - ESHI › Application ID › 0001 › m1 › us ›
+    {{ selectedTemplate.name }}
+    <span class="status draft">Draft</span>
+  </div>
+
+  <div class="content-wrapper">
+
+    <!-- ================= LEFT PANEL ================= -->
+    <div class="left-panel">
+
+      <!-- TOGGLE HEADERS -->
+      <div class="section">
+        <h4 (click)="activeSection='general'" style="cursor:pointer">
+          General Info
+        </h4>
+        <h4 (click)="activeSection='variables'" style="cursor:pointer">
+          Variables
+        </h4>
+      </div>
+
+      <!-- GENERAL INFO -->
+      <div class="info-grid" *ngIf="activeSection === 'general'">
+        <div><strong>Name</strong><br />{{ selectedTemplate.name }}</div>
+        <div><strong>Region</strong><br />{{ selectedTemplate.region }}</div>
+        <div><strong>Created By</strong><br />Paul Rudd</div>
+        <div><strong>Status</strong><br />Draft</div>
+        <div><strong>Modules</strong><br />
+          {{ selectedTemplate.modules.join(', ') }}
+        </div>
+      </div>
+
+      <!-- VARIABLES -->
+      <div *ngIf="activeSection === 'variables'">
+
+        <div class="section">
+          <h4>Variables</h4>
+          <button mat-mini-fab color="primary" (click)="addVariable()">+</button>
+        </div>
+
+        <table class="variables-table"
+               *ngIf="selectedTemplate.variables?.length">
+
+          <tr>
+            <th>Name</th>
+            <th>Default Value</th>
+            <th>Required</th>
+            <th></th>
+          </tr>
+
+          <tr *ngFor="let v of selectedTemplate.variables; let i = index">
+            <td>
+              <input matInput [(ngModel)]="v.name" />
+            </td>
+
+            <td>
+              <input matInput [(ngModel)]="v.defaultValue" />
+            </td>
+
+            <td>
+              <mat-select [(ngModel)]="v.required">
+                <mat-option [value]="true">Yes</mat-option>
+                <mat-option [value]="false">No</mat-option>
+              </mat-select>
+            </td>
+
+            <td>
+              <button mat-icon-button color="warn"
+                      (click)="removeVariable(i)">
+                <mat-icon>delete</mat-icon>
+              </button>
+            </td>
+          </tr>
+        </table>
+      </div>
+
+      <!-- ACTIONS -->
+      <div class="actions">
+        <button mat-raised-button color="primary">Save</button>
+        <button mat-stroked-button>Cancel</button>
+      </div>
+    </div>
+
+    <!-- ================= RIGHT PANEL ================= -->
+    <div class="right-panel">
+      <div class="doc-header">
+        <span>{{ currentDate | date:'MMMM d, y' }}</span>
+        <button mat-icon-button>
+          <mat-icon>more_vert</mat-icon>
+        </button>
+      </div>
+
+      <div class="document">
+        <h3>Through Electronic Submissions Gateway (ESG)</h3>
+        <p><strong>Center for Drug Evaluation and Research</strong></p>
+        <p>Food and Drug Administration</p>
+        <p>Central Document Room, 5901-B</p>
+
+        <p class="highlight">
+          Request for Competitive Generic Therapy Designation
+        </p>
+
+        <p>
+          As per Section 506H(2) of the FD&C Act, Amneal EU, Limited hereby
+          requests Competitive Generic Therapy (CGT) Designation...
+        </p>
+      </div>
+    </div>
+
+  </div>
+</div>

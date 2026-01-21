@@ -1,0 +1,40 @@
+<h3>Edit Template</h3>
+
+<div class="header-form">
+  <div class="field">
+    <label>Name</label>
+    <input matInput [(ngModel)]="template.name" />
+  </div>
+
+  <div class="field">
+    <label>Region</label>
+    <mat-select [(ngModel)]="template.region">
+      <mat-option value="UK">UK</mat-option>
+      <mat-option value="US">US</mat-option>
+    </mat-select>
+  </div>
+</div>
+
+<div class="tree-container">
+  <ul class="tree">
+    <li *ngFor="let m of template.modules; let i = index">
+      <mat-icon>folder</mat-icon>
+      {{ m }}
+      <mat-icon class="delete" (click)="removeModule(i)">delete</mat-icon>
+    </li>
+  </ul>
+
+  <button mat-stroked-button color="primary" (click)="addModule()">
+    + Add Module
+  </button>
+</div>
+
+<div class="footer-actions">
+  <button mat-raised-button color="primary" (click)="updateTemplate()">
+    Update
+  </button>
+
+  <button mat-stroked-button routerLink="/templates">
+    Cancel
+  </button>
+</div>

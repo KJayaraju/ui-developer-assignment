@@ -1,0 +1,76 @@
+<!-- ================= HEADER ================= -->
+<header class="app-header">
+  <div class="header-left">
+    <span class="logo">LOGO</span>
+  </div>
+
+  <div class="header-center">
+    <div class="stepper">
+      <div class="step active">
+        <span class="circle">1</span>
+        <span class="label">Product Info</span>
+      </div>
+      <div class="line"></div>
+
+      <div class="step">
+        <span class="circle">2</span>
+        <span class="label">Manage Document</span>
+      </div>
+      <div class="line"></div>
+
+      <div class="step">
+        <span class="circle">3</span>
+        <span class="label">eCTD Submission</span>
+      </div>
+      <div class="line"></div>
+
+      <div class="step">
+        <span class="circle">4</span>
+        <span class="label">Validation</span>
+      </div>
+      <div class="line"></div>
+
+      <div class="step">
+        <span class="circle">5</span>
+        <span class="label">Dispatch</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="header-right">
+    <div class="user-info">
+      <div class="name">Paul Rudd</div>
+      <div class="role">Author</div>
+      <div class="login">Last login : 23:05 UTC</div>
+    </div>
+    <button mat-icon-button class="logout" (click)="logout()">
+  <mat-icon>logout</mat-icon>
+</button>
+
+  </div>
+</header>
+
+<!-- ================= BODY ================= -->
+<div class="app-body">
+
+  <!-- ========== SIDEBAR ========== -->
+  <aside class="sidebar">
+    <div class="menu-section">
+      <div class="menu-title">Configurations</div>
+      <a class="menu-item active">Templates</a>
+    </div>
+
+    <div class="menu-section">
+      <div class="menu-title">Document Prep</div>
+      <a class="menu-item">Products</a>
+      <a class="menu-item">Applications</a>
+      <a class="menu-item">Sequences</a>
+    </div>
+  </aside>
+
+  <!-- ========== CONTENT ========== -->
+  <main class="page-container">
+    <router-outlet></router-outlet>
+  </main>
+
+</div>

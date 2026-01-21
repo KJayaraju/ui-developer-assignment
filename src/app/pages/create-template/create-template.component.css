@@ -1,0 +1,153 @@
+/* PAGE WRAPPER */
+.create-template-page {
+  background: #ffffff;
+  padding: 20px 24px;
+  min-height: calc(100vh - 64px);
+  font-family: "Roboto", sans-serif;
+}
+
+/* =========================
+   HEADER FORM (TOP BAR)
+========================= */
+.header-form {
+  display: flex;
+  align-items: flex-end;
+  gap: 16px;
+  margin-bottom: 20px;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  width: 220px;
+}
+
+.field label {
+  font-size: 13px;
+  color: #555;
+  margin-bottom: 6px;
+}
+
+/* CREATE STRUCTURE BUTTON */
+.create-btn {
+  height: 40px;
+  padding: 0 18px;
+  background-color: #d56b2d !important;
+  color: #ffffff !important;
+  font-weight: 500;
+  border-radius: 4px;
+  text-transform: none;
+}
+
+/* =========================
+   TREE CONTAINER
+========================= */
+.tree-container {
+  margin-top: 10px;
+}
+
+/* TREE STRUCTURE */
+.tree-container ul {
+  list-style: none;
+  padding-left: 20px;
+  margin: 0;
+}
+
+.tree-container li {
+  position: relative;
+  padding-left: 20px;
+  margin: 8px 0;
+  font-size: 14px;
+  color: #333;
+}
+
+/* CONNECTOR LINE */
+.tree-container li::before {
+  content: "";
+  position: absolute;
+  top: -8px;
+  left: 7px;
+  width: 1px;
+  height: 100%;
+  background: #cfcfcf;
+}
+
+.tree-container li::after {
+  content: "";
+  position: absolute;
+  top: 12px;
+  left: 7px;
+  width: 12px;
+  height: 1px;
+  background: #cfcfcf;
+}
+
+/* REMOVE FIRST LINE */
+.tree-container > ul > li::before {
+  display: none;
+}
+
+/* FOLDER ICON */
+.tree-container mat-icon {
+  font-size: 18px;
+  color: #6b7280;
+  vertical-align: middle;
+  margin-right: 6px;
+}
+
+/* DELETE ICON */
+.delete {
+  font-size: 16px;
+  color: #d32f2f;
+  cursor: pointer;
+  margin-left: 10px;
+  vertical-align: middle;
+}
+
+/* ADD MODULE BUTTON */
+.tree-container button {
+  margin-top: 14px;
+  text-transform: none;
+}
+
+/* =========================
+   FOOTER ACTIONS
+========================= */
+.footer-actions {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: #ffffff;
+  border-top: 1px solid #e0e0e0;
+  padding: 12px 24px;
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+}
+
+/* MODIFY TEMPLATE BUTTON */
+.footer-actions button:first-child {
+  background-color: #d56b2d;
+  color: white;
+}
+
+/* SAVE BUTTON */
+.footer-actions button[color="primary"] {
+  background-color: #d56b2d;
+  color: white;
+}
+
+/* CANCEL BUTTON */
+.footer-actions button:last-child {
+  background: #e0e0e0;
+  color: #333;
+}
+button[disabled] {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.tree-container {
+  pointer-events: auto;
+}

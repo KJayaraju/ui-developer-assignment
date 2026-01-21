@@ -1,0 +1,71 @@
+<div class="login-page">
+  <!-- Top orange bar -->
+  <div class="top-bar"></div>
+
+  <mat-card class="login-card">
+
+    <!-- LOGO -->
+    <div class="logo">logo</div>
+
+    <!-- USERNAME -->
+    <mat-form-field appearance="outline" class="full-width">
+      <mat-icon matPrefix>person</mat-icon>
+      <input
+        matInput
+        placeholder="USERNAME"
+        [(ngModel)]="username"
+        (ngModelChange)="validate()"
+      />
+    </mat-form-field>
+
+    <!-- PASSWORD -->
+    <mat-form-field appearance="outline" class="full-width">
+      <mat-icon matPrefix>lock</mat-icon>
+      <input
+        matInput
+        type="password"
+        placeholder="PASSWORD"
+        [(ngModel)]="password"
+        (ngModelChange)="validate()"
+      />
+    </mat-form-field>
+
+    <!-- EMPTY FIELD ERROR -->
+    <div class="error-box" *ngIf="showError">
+      <mat-icon>error</mat-icon>
+      <span>Please enter username and password</span>
+    </div>
+
+    <!-- PASSWORD LENGTH ERROR -->
+    <div class="error-box" *ngIf="passwordError">
+      <mat-icon>error</mat-icon>
+      <span>Password must be more than 5 characters</span>
+    </div>
+
+    <!-- SIGN IN BUTTON (ALWAYS ENABLED) -->
+    <button
+      mat-raised-button
+      class="sign-btn full-width"
+      (click)="login()">
+      SIGN IN
+    </button>
+
+    <!-- FORGOT PASSWORD -->
+    <div class="forgot">
+      Forgot Password?
+    </div>
+
+    <!-- SOCIAL ICONS -->
+    <div class="social">
+      <span>f</span>
+      <span>in</span>
+      <span>t</span>
+    </div>
+
+    <!-- FOOTER -->
+    <div class="footer">
+      © Copyright Dyaz Innovate 2023. All rights reserved.
+    </div>
+
+  </mat-card>
+</div>

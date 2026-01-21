@@ -1,0 +1,75 @@
+<div class="create-template-page">
+
+  <div class="header-form">
+    <div class="field">
+      <label>Name</label>
+      <input matInput [(ngModel)]="templateName" />
+    </div>
+
+    <div class="field">
+      <label>Region</label>
+      <mat-select [(ngModel)]="region">
+        <mat-option value="UK">UK</mat-option>
+        <mat-option value="US">US</mat-option>
+      </mat-select>
+    </div>
+
+    <button
+      mat-raised-button
+      class="create-btn"
+      (click)="createStructure()"
+      [disabled]="!templateName || !region">
+      + Create Structure
+    </button>
+  </div>
+
+  <div class="tree-container" *ngIf="structureCreated">
+    <ul>
+      <li>Application ID
+        <ul>
+          <li>Sequence 0001
+            <ul>
+              <li *ngFor="let m of modules; let i = index">
+                {{ m }}
+                <span class="delete" (click)="removeModule(i)">✖</span>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+    </ul>
+
+    <button
+  mat-stroked-button
+  (click)="addModule()"
+  [disabled]="!isEditMode">
+  + Add Module
+</button>
+
+  </div>
+
+  <div class="footer-actions" *ngIf="structureCreated">
+
+  <button
+    mat-stroked-button
+    color="primary"
+    *ngIf="!isEditMode"
+    (click)="modifyTemplate()">
+    Modify Template
+  </button>
+
+  <button
+    mat-raised-button
+    color="primary"
+    (click)="saveTemplate()">
+    Save
+  </button>
+
+  <button mat-stroked-button routerLink="/templates">
+    Cancel
+  </button>
+
+</div>
+
+
+</div>
