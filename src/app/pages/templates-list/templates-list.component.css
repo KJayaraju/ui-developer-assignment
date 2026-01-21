@@ -197,5 +197,64 @@
     min-width: 120px;
   }
 }
+/* =========================
+   FIX: GENERAL INFO & VARIABLES RESPONSIVE
+========================= */
+
+/* ---------- Tablet & below ---------- */
+@media (max-width: 1024px) {
+
+  .content-wrapper {
+    flex-direction: column;
+  }
+
+  .left-panel,
+  .right-panel {
+    width: 100%;
+  }
+}
+
+
+/* ---------- Mobile ---------- */
+@media (max-width: 390px) {
+
+  /* Stack panels */
+  .content-wrapper {
+    flex-direction: column;
+  }
+
+  .left-panel,
+  .right-panel {
+    width: 100%;
+    padding: 12px;
+  }
+
+  /* General Info → single column */
+  .info-grid {
+    grid-template-columns: 1fr;
+  }
+
+  /* Variables table → horizontal scroll */
+  .variables-table {
+    display: block;
+    overflow-x: auto;
+    white-space: nowrap;
+  }
+
+  .variables-table input,
+  .variables-table mat-select {
+    min-width: 120px;
+  }
+
+  /* Action buttons */
+  .actions {
+    flex-direction: column;
+  }
+
+  .actions button {
+    width: 100%;
+  }
+}
+
 
 
