@@ -101,3 +101,101 @@
 .variables-table mat-select {
   width: 100%;
 }
+/* =========================
+   RESPONSIVE – TEMPLATE LIST & DETAILS
+========================= */
+
+/* ---------- Tablet (≤1024px) ---------- */
+@media (max-width: 1024px) {
+
+  /* Header */
+  .templates-header {
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  /* Stack panels */
+  .content-wrapper {
+    flex-direction: column;
+  }
+
+  .left-panel,
+  .right-panel {
+    width: 100%;
+  }
+
+  /* Keep 2-column info on tablet */
+  .info-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .actions {
+    flex-wrap: wrap;
+  }
+}
+
+
+/* ---------- Mobile (≤390px) ---------- */
+@media (max-width: 390px) {
+
+  /* Header */
+  .templates-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  /* Table scroll */
+  .templates-table {
+    display: block;
+    overflow-x: auto;
+    white-space: nowrap;
+  }
+
+  /* Breadcrumb wrap */
+  .breadcrumb {
+    flex-direction: column;
+    gap: 6px;
+    font-size: 12px;
+  }
+
+  /* Stack panels */
+  .content-wrapper {
+    flex-direction: column;
+  }
+
+  .left-panel,
+  .right-panel {
+    width: 100%;
+    padding: 12px;
+  }
+
+  /* General Info → single column */
+  .info-grid {
+    grid-template-columns: 1fr;
+    font-size: 13px;
+  }
+
+  /* Actions buttons stack */
+  .actions {
+    flex-direction: column;
+  }
+
+  .actions button {
+    width: 100%;
+  }
+
+  /* Variables table scroll */
+  .variables-table {
+    display: block;
+    overflow-x: auto;
+    white-space: nowrap;
+  }
+
+  .variables-table input,
+  .variables-table mat-select {
+    min-width: 120px;
+  }
+}
+
+
